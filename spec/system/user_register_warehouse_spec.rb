@@ -71,6 +71,15 @@ describe "Usuário visualiza página de cadastro de galpões" do
       
       # Assert
       expect(page).to have_content('Galpão não cadastrado.')
+      expect(page).to have_content('Nome não pode ficar em branco')
+      expect(page).to have_content('Código não pode ficar em branco')
+      expect(page).to have_content('Cidade não pode ficar em branco')
+      expect(page).to have_content('Descrição não pode ficar em branco')
+      expect(page).to have_content('Endereço não pode ficar em branco')
+      expect(page).to have_content('CEP não pode ficar em branco')
+      expect(page).to have_content('Área não pode ficar em branco')
+      expect(page).to have_content('Código não possui o tamanho esperado (3 caracteres)')
+      expect(page).to have_content 'CEP deve ter o formato 00000-000'
 
     end
 
