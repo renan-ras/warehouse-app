@@ -1,27 +1,13 @@
 class WarehousesController < ApplicationController
-  def show
-    id = params[:id]
-    @warehouse = Warehouse.find(id)
-  end
+  before_action :set_warehouse, only: [:show, :edit, :update]
+
+  def show; end
 
   def new
     @warehouse = Warehouse.new
   end
-
-  # def create
-  #   @object = Object.new(params[:object])
-  #   if @object.save
-  #     flash[:success] = "Object successfully created"
-  #     redirect_to @object
-  #   else
-  #     flash[:error] = "Something went wrong"
-  #     render 'new'
-  #   end
-  # end
   
   def create
-    warehouse_params = params.require(:warehouse).permit(:name, :code, :city, :description, :address, :zip, :area)
-
     @warehouse = Warehouse.new(warehouse_params)
 
     if @warehouse.save()
@@ -30,6 +16,27 @@ class WarehousesController < ApplicationController
       flash.now[:notice] = 'Galpão não cadastrado.'
       render 'new'
     end
+  end
+
+  def edit; end
+  
+  def update
+    if @warehouse.update(warehouse_params)
+      redirect_to @warehouse, notice: 'Galpão atualizado com sucesso'
+    else
+      flash.now[:notice] = "Galpão não atualizado"
+      render 'edit'
+    end
+  end
+  
+
+  private
+  def set_warehouse
+    @warehouse = Warehouse.find(params[:id])
+  end
+  
+  def warehouse_params
+    params.require(:warehouse).permit(:name, :code, :city, :description, :address, :zip, :area)
   end
 
 end

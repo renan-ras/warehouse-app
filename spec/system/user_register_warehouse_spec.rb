@@ -108,7 +108,7 @@ describe "Usuário visualiza página de cadastro de galpões" do
     it 'garante que o código do galpão seja único' do
       # Arrange
       # Cadastrar um galpão
-      Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000, description: 'Galpão da zona portuária do Rio', address: 'Avenida do Museu do Amanhã, 1000', zip: '20100-000')
+      Warehouse.create!(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60_000, description: 'Galpão da zona portuária do Rio', address: 'Avenida do Museu do Amanhã, 1000', zip: '20100-000')
       
         # Act
         # Cadastrar outro galpão com código repetido
