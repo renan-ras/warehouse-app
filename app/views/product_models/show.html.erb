@@ -1,0 +1,15 @@
+<h1>Modelo de Produto</h1>
+
+<div>
+  <dl>
+    <dt>Descrição: </dt><dd><%= @product_model.name %></dd>
+    <dt>Fabricante: </dt><dd><%= @product_model.supplier.brand_name %></dd>
+    <dt>SKU: </dt><dd><%= @product_model.sku %></dd>
+    <dt>Peso: </dt><dd><%= @product_model.weight %> g</dd>
+    <dt>Dimensões: </dt><dd><%= @product_model.width %> x <%= @product_model.height %> x <%= @product_model.depth %> (cm)</dd>
+  </dl>
+</div>
+
+
+<%= link_to('Editar', edit_product_model_path) %> <br>
+<%= link_to('Voltar', product_models_path) %> <br>
