@@ -15,6 +15,13 @@
       <nav>
         <ul>
           <li>
+            <% if user_signed_in? %>
+              <%= button_to 'Sair', destroy_user_session_path, method: :delete %> | <%= current_user.name %> (<%= current_user.email %>)
+            <% else %>
+              <%= link_to 'Entrar', new_user_session_path %>
+            <% end %>
+          </li>
+          <li>
             <%= link_to 'Home', root_path %>
           </li>
           <li>
@@ -29,8 +36,8 @@
     
     <main>
       <div>
-        <%= alert %>
-        <%= notice %>
+        <p class="alert"><%= alert %>
+        <p class="notice"><%= notice %>
       </div>
       <%= yield %>
     </main>
