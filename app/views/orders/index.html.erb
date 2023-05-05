@@ -1,0 +1,45 @@
+<section id="orders">
+  <h2>Pedidos</h2>
+  <div>
+    <%= link_to('Cadastrar Pedido', new_order_path) %>
+  </div><br>
+
+  <div>
+    <% if @orders.empty? %>
+      <p>Não existem pedidos cadastrados.</p>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Galpão</th>
+            <th>Fornecedor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td>
+                <%= link_to(order) do %>
+                  <%= order.estimated_delivery_date %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to(order) do %>
+                  <%= order.warehouse.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to(order) do %>
+                  <%= order.supplier.brand_name %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+
+      </table>
+    <% end %>
+  </div>
+
+</section>

@@ -1,0 +1,14 @@
+<h1>Pedido</h1>
+
+<div>
+  <dl>
+    <dt>Galpão: </dt><dd><%= @order.warehouse.name %></dd>
+    <dt>Fornecedor: </dt><dd><%= @order.supplier.brand_name %></dd>
+    <dt>Entrega Prevista: </dt><dd><%= @order.estimated_delivery_date %></dd>
+    <dt>Usuário Responsável: </dt><dd><%= @order.user.name %></dd>
+  </dl>
+</div>
+
+
+<%= link_to('Editar', edit_order_path) %> <br>
+<%= link_to('Voltar', orders_path) %> <br>
